@@ -1,0 +1,42 @@
+﻿@using AdventureWorksSales.Web.Models
+@{
+    ViewBag.Title = "Index";
+    List<ProductCategoryModel> AllProductCategories = ViewBag.vData;
+}
+
+<h2>Product Categories</h2>
+
+
+<div style="border:dotted;padding:8px;">
+    <form action="/ProductCategory/AddNew" method="post">
+        <div class="form-group">
+            <label for="email">New Category:</label>
+            <input type="text" class="form-control" name="proCatName" placeholder="Category name" required>
+        </div>
+        <button type="submit" name="" class="btn btn-primary">Add Category</button>
+    </form>
+</div>
+<br />
+<p>List of all product categories. You can click the Edit button from the list to Edit the Corresponding Product Category.</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Category Names</th>
+            <th>Last Modified Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ProductCategoryModel prodCat in AllProductCategories) {
+            <tr>
+                <td>@prodCat.ProductCategoryID</td>
+                <td>@prodCat.Name</td>
+                <td>@prodCat.ModifiedDate</td>
+                <td><a href="/ProductCategory/Edit/@prodCat.ProductCategoryID" class="btn btn-primary">Edit</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@using AdventureWorksSales.Web.Models;
+
+@{
+    ViewBag.Title = "Home Page";
+    SalesAnalysisModel inModel = ViewBag.vData; 
+}
+
+<div class="jumbotron">
+    <h1>SALES ANALYSIS</h1>
+    <p class="lead">This application is for test purposes and do not reflect actual data of any company or organization</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3><i>Below, sales figures are represented in US Dollars</i></h3>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Total orders</h2>
+        <p class="sales">
+           @inModel.TotalOrders
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Highest line total</h2>
+        <p class="sales" style="font-size:55px;">
+            @inModel.HighestLineTotal
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Front Brakes sales total</h2>
+        <p class="sales">
+            @inModel.FrontBrakesSalesTotal
+        </p>
+    </div>
+</div>

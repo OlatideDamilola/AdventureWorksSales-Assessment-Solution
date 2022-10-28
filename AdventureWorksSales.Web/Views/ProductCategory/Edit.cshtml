@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    string eData = ViewBag.vData;
+}
+
+<h2>Edit this Product Category</h2>
+
+<form action="/ProductCategory/Update" method="post">
+    <div class="form-group">
+        <label for="email">Name:</label>
+        <input type="text" class="form-control" name="proCatName" placeholder="@if(eData!= null) {@eData.Split('-')[0]} " required>
+        <input type="hidden" name="editId" value="@if(eData!= null) {@eData.Split('-')[1]}" />
+    </div>
+    <button type="submit" name="" class="btn btn-primary">Update</button>
+</form>
